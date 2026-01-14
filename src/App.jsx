@@ -4,7 +4,7 @@ import "./App.css";
 
 // Replace with your Apps Script Web App URL
 const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbxQCYgKrkmzOI_oSKIkQa7esAcIaESx9e943AvR2Fthj61FtakwQL7KBcXyHxE1UEW79g/exec";
-
+//mm
 async function saveLead(name, email, answers,results) {
   // Send URL-encoded form data (simple request → no preflight)
   // Build a payload (URL-encoded to avoid preflight)
