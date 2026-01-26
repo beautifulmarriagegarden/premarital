@@ -36,119 +36,200 @@ async function saveLead(name, email, answers,results) {
   }
 }
 
-
 const questions = [
-  /* questions will be inserted later */
+  
+  // SECTION 2: RELATIONSHIP OVERVIEW
+  {
+  section: {
+    title: "SECTION 2: RELATIONSHIP OVERVIEW",
+    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+  },
+  question: "How long have you been in this relationship?",
+  type: "text"
+},
+  { question: " How long have you been in this relationship?", type: "text" },
+  { question: " How did you meet?", type: "text" },
+  {
+    question: " Are you currently:",
+    type: "single",
+    options: ["Dating", "Engaged", "Courting", "Long-distance relationship"],
+  },
+  {
+    question: " Have you set a tentative wedding timeline?",
+    type: "single",
+    options: ["Yes (please specify below)", "No"],
+  },
+  {
+    question: " If yes, please specify the tentative wedding timeline:",
+    type: "text",
+  },
+  {
+    question: " Have either of you been previously married?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  {
+    question: " Do you currently live together?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+
+
+// SECTION 3: FAITH & SPIRITUAL LIFE
  {
-      question: "When you think about marriage, what emotion shows up most often?",
-      image: "/images/q1.png",   
-      options: [
-        "Fear of making the wrong choice",
-        "Anxiety about whether it will ever happen",
-        "Hope mixed with peace",
-        "Pressure to “figure it out quickly"
-      ],
-      type: "single"
-    },
-    {
-      question: "How would you describe your relationship history right now?",
-      image: "/images/q2.png",  
-      options: [
-        "I’m still affected by past heartbreak",
-        "I’ve healed, but I’m cautious",
-        "I’ve fully healed and feel emotionally free",
-        "I try not to think about the past at all"
-      ],
-      type: "single"
-    },
-    {
-      question: "When making relationship decisions, what guides you most?",
-      image: "/images/q3.png",   
-      options: [
-        "My emotions and chemistry",
-        "Advice from others",
-        "Prayer and inner peace",
-        "Timing and pressure"
-      ],
-      type: "single"
-    },
-    {
-      question: "How involved is prayer in your search for a spouse?",
-      image: "/images/q4.png",   
-      options: [
-        "I pray occasionally",
-        "I pray only when I feel worried",
-        "I intentionally pray and seek God’s guidance",
-        "I struggle to know how to pray about it"
-      ],
-      type: "single"
-    },
-    {
-      question: "How open are you to meeting potential partners?",
-      image: "/images/q5.png",   
-      options: [
-        "I prefer to leave it entirely to God",
-        "I’m open but unsure where to start",
-        "I actively engage in healthy opportunities",
-        "I avoid connections due to fear or disappointment"
-      ],
-      type: "single"
-    },
-    {
-      question: "How do you feel about receiving recommendations or advice?",
-      image: "/images/q6.png",   
-      options: [
-        "I prefer to decide alone",
-        "I listen but rarely act on advice",
-        "I value wise counsel",
-        "I feel uncomfortable with recommendations"
-      ],
-      type: "single"
-    },
-    {
-      question: "What is your main focus right now?",
-      image: "/images/q7.png",   
-      options: [
-        "Finding the right man",
-        "Healing and personal growth",
-        "Building my purpose and identity",
-        "Waiting and trusting God"
-      ],
-      type: "single"
-    },
-    {
-      question: "Which statement resonates most with you?",
-      image: "/images/q8.png",   
-      options: [
-        "Marriage will complete me",
-        "Marriage is a partnership, not a solution",
-        "I fear marriage may limit me",
-        "I haven’t thought deeply about it"
-      ],
-      type: "single"
-    },
-    {
-      question: "How do you approach self-presentation?",
-      image: "/images/q9.png",   
-      options: [
-        "I dress to attract attention",
-        "I dress modestly but without confidence",
-        "I present myself with dignity and confidence",
-        "I struggle to find balance"
-      ],
-      type: "single"
-    },
-    {
-      question: "If a man shows interest but doesn’t commit, what do you usually do?",
-      image: "/images/q10.png",   
-      options: [
-        "Wait and hope he proposes",
-        "Confront him immediately",
-        "Set boundaries and seek clarity",
-        "Feel confused and emotionally drained"
-      ],
-      type: "single"
-    }
+  section: {
+    title: "SECTION 3: FAITH & SPIRITUAL LIFE",
+    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+  },
+  question: " Do you identify as a Christian?",
+    type: "single",
+    options: ["Yes", "No", "Exploring faith"],
+  },
+  { question: " What Christian tradition or denomination do you belong to (if any)?", type: "text" },
+  {
+    question: " How important is faith in your relationship?",
+    type: "single",
+    options: ["Very important", "Somewhat important", "Not very important"],
+  },
+  {
+    question: " Do you pray together as a couple?",
+    type: "single",
+    options: ["Regularly", "Occasionally", "Rarely", "Never"],
+  },
+  {
+    question: " How would you describe your personal relationship with God at this stage of your life?",
+    type: "text",
+  },
+
+  // SECTION 4: MOTIVATION FOR COUNSELLING
+  {
+  section: {
+    title: "SECTION 3: FAITH & SPIRITUAL LIFE",
+    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+  },
+   question: " What motivated you to seek pre-marital counselling at this time?", type: "text"
+  },
+  { question: " What are your top three expectations from pre-marital counselling?", type: "text" },
+  { question: " Are there any specific concerns or issues you would like us to focus on?", type: "text" },
+
+
+// SECTION 5: COMMUNICATION & CONFLICT
+ {
+  section: {
+    title: "SECTION 5: COMMUNICATION & CONFLICT",
+    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+  },
+ question: " How would you describe communication in your relationship?",
+    type: "single",
+    options: ["Very healthy", "Mostly healthy", "Sometimes difficult", "Often challenging"],
+  },
+  { question: " When conflicts arise, how do you usually resolve them?", type: "text" },
+  { question: " What are the most common sources of disagreement between you?", type: "text" },
+  {
+    question: " Do unresolved conflicts tend to linger?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+
+   // SECTION 6: EMOTIONAL & PERSONAL BACKGROUND
+
+  {
+  section: {
+    title: "SECTION 5: COMMUNICATION & CONFLICT",
+    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+  },
+    question: "How comfortable are you with expressing your emotions?",
+    type: "single",
+    options: ["Very comfortable", "Somewhat comfortable", "Not comfortable"],
+  },
+  {
+    question:
+      "Have you experienced any of the following that may impact your relationship? (Select all that apply)",
+    type: "multiple",
+    options: [
+      "Past relationship trauma",
+      "Family conflict or broken home",
+      "Abuse (emotional, physical, or sexual)",
+      "Significant loss or grief",
+      "None of the above",
+      "Other",
+    ],
+  },
+  {
+    question: "If you selected “Other”, please specify:",
+    type: "text",
+  },
+  {
+    question: "Are you currently receiving therapy or counselling elsewhere?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+
+    // SECTION 7: FAMILY & BACKGROUND
+  { question: " How would you describe your relationship with your family of origin?", type: "text" },
+  { question: " Are there cultural or family expectations that may affect your marriage?", type: "text" },
+  { question: " How involved do you expect extended family to be after marriage?", type: "text" },
+
+  // SECTION 8: VALUES, ROLES & EXPECTATIONS
+  { question: " What does marriage mean to you personally?", type: "text" },
+  { question: " What do you believe are the roles of a husband and a wife in marriage?", type: "text" },
+  {
+    question: " Have you discussed expectations around finances?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  {
+    question: " Have you discussed expectations around children?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  {
+    question: " Have you discussed expectations around career goals?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  {
+    question: " Have you discussed expectations around household responsibilities?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+
+  // SECTION 9: FINANCES & PRACTICAL LIFE
+  {
+    question: " How do you currently manage finances?",
+    type: "single",
+    options: ["Individually", "Jointly", "Not discussed yet"],
+  },
+  { question: " Do either of you have significant financial obligations (debts, dependents)?", type: "text" },
+  { question: " How comfortable are you discussing money matters?", type: "text" },
+
+  // SECTION 10: INTIMACY & BOUNDARIES
+  {
+    question: " Have you discussed physical boundaries in your relationship?",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  { question: " Are there areas related to intimacy you would like guidance on?", type: "text" },
+
+  // SECTION 11: READINESS FOR MARRIAGE
+  { question: " On a scale of 1–10, how ready do you feel for marriage?", type: "text" },
+  { question: " What excites you most about marriage?", type: "text" },
+  { question: " What concerns or fears do you have about marriage?", type: "text" },
+
+  // SECTION 12: ADDITIONAL INFORMATION
+  { question: " Is there anything else you believe would be important for us to know before your counselling sessions?", type: "text" },
+
+  // CONSENT
+  {
+    question: "I understand that pre-marital counselling is a guided process aimed at growth, clarity, and preparation for marriage.",
+    type: "single",
+    options: ["Yes", "No"],
+  },
+  {
+    question: "I agree to participate honestly and respectfully in the counselling process.",
+    type: "single",
+    options: ["Yes", "No"],
+  },
   ];
 
   // For each question index, map option text -> tag
@@ -313,7 +394,13 @@ const RULES = [
   const [answers, setAnswers] = useState(questions.map(q => q.type === "multiple" ? [] : ""));
   const [otherAnswers, setOtherAnswers] = useState(questions.map(() => ""));
   const [submitted, setSubmitted] = useState(false);
-
+  
+// Allow option for text
+const handleTextAnswer = (text) => {
+  const newAnswers = [...answers];
+  newAnswers[current] = text;
+  setAnswers(newAnswers);
+};
 
   // New: track quiz start and user info
   const [quizStarted, setQuizStarted] = useState(false);
@@ -331,6 +418,15 @@ const RULES = [
   const [formError, setFormError] = useState("");
 
   const currentQuestion = questions[current];
+  const getCurrentSection = (idx) => {
+  for (let i = idx; i >= 0; i--) {
+    if (questions[i].section) return questions[i].section;
+  }
+  return null;
+};
+
+const currentSection = getCurrentSection(current);
+
   const isLast = current === questions.length - 1;
   const isFirst = current === 0;
 
@@ -376,6 +472,13 @@ const RULES = [
   };
 
   const validateAndNext = () => {
+
+  if (currentQuestion.type === "text") {
+    if (!String(answers[current] || "").trim()) {
+    alert("Please enter your answer.");
+    return;
+  }
+}
     if (currentQuestion.type === "multiple") {
       if (answers[current].length === 0) {
         alert("Please select at least one option.");
@@ -600,6 +703,18 @@ const showBrandHeader =
             </button>
           )}
 
+{/* SECTION HEADER (shows on every question in the section) */}
+    {currentSection && (
+      <div className="section-header">
+        <h3 className="section-title">{currentSection.title}</h3>
+        {currentSection.description && (
+          <p className="section-description">
+            {currentSection.description}
+          </p>
+        )}
+      </div>
+    )}
+
           <h2 className="question-text">{currentQuestion.question}</h2>
           {currentQuestion.image && (
             <img
@@ -610,43 +725,68 @@ const showBrandHeader =
              />
           )}
 
-          <div className="options">
-            {currentQuestion.options.map((opt, i) => {
-              const isOther = opt === "Other";
-              const isChecked = currentQuestion.type === "multiple"
-                ? answers[current].includes(opt)
-                : answers[current] === opt;
+        <div className="options">
 
-              return (
-                <div key={i}>
-                  <label>
-                    <input
-                      type={currentQuestion.type === "multiple" ? "checkbox" : "radio"}
-                      name={`q${current}`}
-                      value={opt}
-                      checked={isChecked}
-                      onChange={() => handleAnswer(opt, currentQuestion.type === "multiple")}
-                    />
-                    {isOther ? "Other:" : opt}
-                  </label>
-                  {isOther && isChecked && (
-                    <input
-                      type="text"
-                      value={otherAnswers[current]}
-                      onChange={e => handleOtherChange(e.target.value)}
-                      placeholder="Please specify"
-                    />
-                  )}
-                </div>
-              );
-            })}
+  {/* TEXT QUESTIONS */}
+  {currentQuestion.type === "text" && (
+    <>
+      <textarea
+        className="lead-input"
+        placeholder="Type your answer here..."
+        value={answers[current] || ""}
+        onChange={(e) => handleTextAnswer(e.target.value)}
+        rows={4}
+        style={{ width: "100%" }}
+      />
+      <button className="next-btn" onClick={validateAndNext}>
+        {isLast ? "Submit" : "Next"}
+      </button>
+    </>
+  )}
 
-            {currentQuestion.type === "multiple" && (
-              <button className="next-btn" onClick={validateAndNext}>
-                {isLast ? "Submit" : "Next"}
-              </button>
-            )}
-          </div>
+  {/* SINGLE / MULTIPLE QUESTIONS */}
+  {(currentQuestion.type === "single" || currentQuestion.type === "multiple") &&
+    (currentQuestion.options || []).map((opt, i) => {
+      const isOther = opt === "Other";
+      const isChecked =
+        currentQuestion.type === "multiple"
+          ? answers[current].includes(opt)
+          : answers[current] === opt;
+
+      return (
+        <div key={i}>
+          <label>
+            <input
+              type={currentQuestion.type === "multiple" ? "checkbox" : "radio"}
+              name={`q${current}`}
+              value={opt}
+              checked={isChecked}
+              onChange={() => handleAnswer(opt, currentQuestion.type === "multiple")}
+            />
+            {isOther ? "Other:" : opt}
+          </label>
+
+          {isOther && isChecked && (
+            <input
+              type="text"
+              value={otherAnswers[current]}
+              onChange={(e) => handleOtherChange(e.target.value)}
+              placeholder="Please specify"
+            />
+          )}
+        </div>
+      );
+    })}
+
+  {/* Next button for MULTIPLE */}
+  {currentQuestion.type === "multiple" && (
+    <button className="next-btn" onClick={validateAndNext}>
+      {isLast ? "Submit" : "Next"}
+    </button>
+  )}
+
+  {/* Next button for SINGLE (because you auto-advance on click already) */}
+</div>
 
           <div className="progress-bar">
             <div
