@@ -656,3 +656,10 @@
   font-size: 0.9rem;
   color: #555;
 }
+
+.brand-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+}

@@ -601,7 +601,7 @@ const showBrandHeader =
   return (
   
     <div className="App">  
-        {showBrandHeader && <BrandHeader />}
+       <BrandHeader />
 
      {/* INTRO SCREEN — high-conversion version */}
 {showIntro && !quizStarted && !submitted && (
