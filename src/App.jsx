@@ -44,9 +44,12 @@ const questions = [
     title: "SECTION 2: RELATIONSHIP OVERVIEW",
     description: "These questions help us understand why you are seeking counselling and what you hope to gain."
   },
-  question: "How long have you been in this relationship?",
-  type: "text"
+ question: " Are you currently:",
+    type: "single",
+    options: ["Dating", "Engaged", "Courting", "Long-distance relationship"],
 },
+{ question: "How long have you been in this relationship?",
+  type: "text" },
   { question: " How long have you been in this relationship?", type: "text" },
   { question: " How did you meet?", type: "text" },
   {
@@ -601,8 +604,7 @@ const showBrandHeader =
   return (
   
     <div className="App">  
-       <BrandHeader />
-
+git
      {/* INTRO SCREEN — high-conversion version */}
 {showIntro && !quizStarted && !submitted && (
   <section className="intro">
