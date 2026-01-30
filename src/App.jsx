@@ -84,7 +84,7 @@ const questions = [
     type: "single",
     options: ["Yes", "No", "Exploring faith"],
   },
-  { question: " What Christian tradition or denomination do you belong to (if any)?", type: "text" },
+  { question: " What Christian tradition or denomination do you belong to (if any. Specify NA otherwise)?", type: "text" },
   {
     question: " How important is faith in your relationship?",
     type: "single",
@@ -155,7 +155,7 @@ const questions = [
     ],
   },
   {
-    question: "If you selected “Other”, please specify:",
+    question: "If you selected “Other”, please specify (specify NA otherwise):",
     type: "text",
   },
   {
@@ -242,7 +242,7 @@ question: " How do you currently manage finances?",
  },
   { question: " What excites you most about marriage?", type: "text" },
   { question: " What concerns or fears do you have about marriage?", type: "text" },
-{question: "Certain genotype combinations may affect the health of future children. This section is for counseling and guidance purposes only. Do you know your genotype?",
+{question: "Certain genotype combinations may affect the health of future children. Do you know your genotype?",
   type: "single",
   options: ["Yes", "No"],
 },
