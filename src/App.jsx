@@ -3,7 +3,7 @@ import "./App.css";
 // import getFeedback from "./feedback.js";
 
 // Replace with your Apps Script Web App URL
-const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbxQCYgKrkmzOI_oSKIkQa7esAcIaESx9e943AvR2Fthj61FtakwQL7KBcXyHxE1UEW79g/exec";
+const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbxVZzmwdqt0JLPOiVt7hLo6G3Y6gJUILmpkblrCokkvC7hspvTOLwBWqj7oz8z4ovr_Ag/exec";
 //mm
 async function saveLead(name, email, answers,results) {
   // Send URL-encoded form data (simple request → no preflight)
@@ -38,19 +38,15 @@ async function saveLead(name, email, answers,results) {
 
 const questions = [
   
-  // SECTION 2: RELATIONSHIP OVERVIEW
+  // SECTION 1: RELATIONSHIP OVERVIEW
   {
   section: {
-    title: "SECTION 2: RELATIONSHIP OVERVIEW",
-    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+    title: "SECTION 1: RELATIONSHIP OVERVIEW",
+    description: "These questions give us a general understanding of your relationship history, current stage, and practical context as you prepare for marriage."
   },
- question: " Are you currently:",
-    type: "single",
-    options: ["Dating", "Engaged", "Courting", "Long-distance relationship"],
+  question: "How long have you been in this relationship?",
+  type: "text"
 },
-{ question: "How long have you been in this relationship?",
-  type: "text" },
-  { question: " How long have you been in this relationship?", type: "text" },
   { question: " How did you meet?", type: "text" },
   {
     question: " Are you currently:",
@@ -60,10 +56,10 @@ const questions = [
   {
     question: " Have you set a tentative wedding timeline?",
     type: "single",
-    options: ["Yes (please specify below)", "No"],
+    options: ["Yes", "No"],
   },
   {
-    question: " If yes, please specify the tentative wedding timeline:",
+    question: " If yes, please specify the tentative wedding timeline (indicate NA otherwise)",
     type: "text",
   },
   {
@@ -78,11 +74,11 @@ const questions = [
   },
 
 
-// SECTION 3: FAITH & SPIRITUAL LIFE
+// SECTION 2: FAITH & SPIRITUAL LIFE
  {
   section: {
-    title: "SECTION 3: FAITH & SPIRITUAL LIFE",
-    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+    title: "SECTION 2: FAITH & SPIRITUAL LIFE",
+    description: "These questions help us understand your faith background, spiritual practices, and how faith influences your relationship and decision-making."
   },
   question: " Do you identify as a Christian?",
     type: "single",
@@ -104,11 +100,11 @@ const questions = [
     type: "text",
   },
 
-  // SECTION 4: MOTIVATION FOR COUNSELLING
+  // SECTION 3: MOTIVATION FOR COUNSELLING
   {
   section: {
-    title: "SECTION 3: FAITH & SPIRITUAL LIFE",
-    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+    title: "SECTION 3: MOTIVATION FOR COUNSELLING",
+    description: "These questions explore your reasons for seeking premarital counselling, your expectations, and the areas where you are hoping for guidance and growth."
   },
    question: " What motivated you to seek pre-marital counselling at this time?", type: "text"
   },
@@ -116,11 +112,11 @@ const questions = [
   { question: " Are there any specific concerns or issues you would like us to focus on?", type: "text" },
 
 
-// SECTION 5: COMMUNICATION & CONFLICT
+// SECTION 4: COMMUNICATION & CONFLICT
  {
   section: {
-    title: "SECTION 5: COMMUNICATION & CONFLICT",
-    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+    title: "SECTION 4: COMMUNICATION & CONFLICT",
+    description: "These questions help us understand how you communicate, handle disagreements, and navigate conflict within your relationship."
   },
  question: " How would you describe communication in your relationship?",
     type: "single",
@@ -134,12 +130,12 @@ const questions = [
     options: ["Yes", "No"],
   },
 
-   // SECTION 6: EMOTIONAL & PERSONAL BACKGROUND
+   // SECTION 5: EMOTIONAL & PERSONAL BACKGROUND
 
   {
   section: {
-    title: "SECTION 5: COMMUNICATION & CONFLICT",
-    description: "These questions help us understand why you are seeking counselling and what you hope to gain."
+    title: "SECTION 5: EMOTIONAL & PERSONAL BACKGROUND",
+     description: "These questions explore emotional awareness, past experiences, and personal factors that may influence your relationship and emotional responses."
   },
     question: "How comfortable are you with expressing your emotions?",
     type: "single",
@@ -168,13 +164,27 @@ const questions = [
     options: ["Yes", "No"],
   },
 
-    // SECTION 7: FAMILY & BACKGROUND
-  { question: " How would you describe your relationship with your family of origin?", type: "text" },
+    // SECTION 6: FAMILY & BACKGROUND
+{
+  section: {
+    title: "SECTION 6: FAMILY & BACKGROUND",
+   description: "These questions help us understand your family background, cultural influences, and the role extended family may play in your marriage."
+  },
+ question: "How would you describe your relationship with your family of origin?", 
+ type: "text" ,
+ },
   { question: " Are there cultural or family expectations that may affect your marriage?", type: "text" },
   { question: " How involved do you expect extended family to be after marriage?", type: "text" },
 
-  // SECTION 8: VALUES, ROLES & EXPECTATIONS
-  { question: " What does marriage mean to you personally?", type: "text" },
+  // SECTION 7: VALUES, ROLES & EXPECTATIONS
+  {
+  section: {
+    title: "SECTION 7: VALUES, ROLES & EXPECTATIONS",
+     description: "These questions explore your values, beliefs about marriage, and expectations regarding roles, responsibilities, and life priorities."
+  },
+question: " What does marriage mean to you personally?", 
+type: "text",
+ },
   { question: " What do you believe are the roles of a husband and a wife in marriage?", type: "text" },
   {
     question: " Have you discussed expectations around finances?",
@@ -197,33 +207,62 @@ const questions = [
     options: ["Yes", "No"],
   },
 
-  // SECTION 9: FINANCES & PRACTICAL LIFE
+  // SECTION 8: FINANCES & PRACTICAL LIFE
   {
-    question: " How do you currently manage finances?",
+  section: {
+    title: "SECTION 8: FINANCES & PRACTICAL LIFE",
+    description: "These questions focus on financial habits, practical planning, and how you approach money and shared responsibilities as a couple."
+  },
+question: " How do you currently manage finances?",
     type: "single",
     options: ["Individually", "Jointly", "Not discussed yet"],
-  },
+ },
   { question: " Do either of you have significant financial obligations (debts, dependents)?", type: "text" },
   { question: " How comfortable are you discussing money matters?", type: "text" },
 
-  // SECTION 10: INTIMACY & BOUNDARIES
+  // SECTION 9: INTIMACY & BOUNDARIES
   {
-    question: " Have you discussed physical boundaries in your relationship?",
+  section: {
+    title: "SECTION 9: INTIMACY & BOUNDARIES",
+    description: "These questions address intimacy, boundaries, and areas where you may desire clarity, alignment, or guidance before marriage."
+  },
+ question: " Have you discussed physical boundaries in your relationship?",
     type: "single",
     options: ["Yes", "No"],
-  },
+ },
   { question: " Are there areas related to intimacy you would like guidance on?", type: "text" },
 
-  // SECTION 11: READINESS FOR MARRIAGE
-  { question: " On a scale of 1–10, how ready do you feel for marriage?", type: "text" },
+  // SECTION 10: READINESS FOR MARRIAGE
+  {
+  section: {
+    title: "SECTION 10: READINESS FOR MARRIAGE",
+    description: "These questions invite you to reflect on your readiness for marriage, including your hopes, concerns, and level of preparedness."
+  },
+  question: " On a scale of 1–10, how ready do you feel for marriage?", type: "text",
+ },
   { question: " What excites you most about marriage?", type: "text" },
   { question: " What concerns or fears do you have about marriage?", type: "text" },
+{question: "Certain genotype combinations may affect the health of future children. This section is for counseling and guidance purposes only. Do you know your genotype?",
+  type: "single",
+  options: ["Yes", "No"],
+},
 
-  // SECTION 12: ADDITIONAL INFORMATION
-  { question: " Is there anything else you believe would be important for us to know before your counselling sessions?", type: "text" },
+  // SECTION 11: ADDITIONAL INFORMATION
+{
+  section: {
+    title: "SECTION 11: ADDITIONAL INFORMATION",
+    description: "This section provides space for you to share any additional information you believe would be important for us to know before your counselling sessions."
+},
+ question: " Is there anything else you believe would be important for us to know before your counselling sessions?", 
+  type: "text",
+},
 
   // CONSENT
-  {
+{
+  section: {
+    title: "CONSENT",
+    description: "Please review the statements below and indicate your agreement before submitting your premarital counselling intake form."
+},
     question: "I understand that pre-marital counselling is a guided process aimed at growth, clarity, and preparation for marriage.",
     type: "single",
     options: ["Yes", "No"],
@@ -233,161 +272,9 @@ const questions = [
     type: "single",
     options: ["Yes", "No"],
   },
-  ];
-
-  // For each question index, map option text -> tag
-const TAGS_BY_QUESTION = {
-  0: { // Q1
-    "Fear of making the wrong choice": "Emotional Healing & Fear",
-    "Anxiety about whether it will ever happen": "Loneliness & Emotional Strain",
-    "Hope mixed with peace": "Healthy Alignment",
-    "Pressure to “figure it out quickly": "Pressure from Others"
-  },
-  1: { // Q2
-    "I’m still affected by past heartbreak": "Emotional Healing",
-    "I’ve healed, but I’m cautious": "Partial Healing",
-    "I’ve fully healed and feel emotionally free": "Healthy Readiness",
-    "I try not to think about the past at all": "Avoidance / Unresolved Hurt"
-  },
-  2: { // Q3
-    "My emotions and chemistry": "Emotion-led",
-    "Advice from others": "External Voices",
-    "Prayer and inner peace": "Discerning God’s Will",
-    "Timing and pressure": "Pressure-driven"
-  },
-  3: { // Q4
-    "I pray occasionally": "Inconsistent Prayer",
-    "I pray only when I feel worried": "Reactive Prayer",
-    "I intentionally pray and seek God’s guidance": "Strong Spiritual Foundation",
-    "I struggle to know how to pray about it": "Need for Guidance"
-  },
-  4: { // Q5
-    "I prefer to leave it entirely to God": "Passive Waiting",
-    "I’m open but unsure where to start": "Unclear Process",
-    "I actively engage in healthy opportunities": "Healthy Engagement",
-    "I avoid connections due to fear or disappointment": "Fear-based Withdrawal"
-  },
-  5: { // Q6
-    "I prefer to decide alone": "Isolation",
-    "I listen but rarely act on advice": "Selective Listening",
-    "I value wise counsel": "Wise Engagement",
-    "I feel uncomfortable with recommendations": "Emotional Guarding"
-  },
-  6: { // Q7
-    "Finding the right man": "External Focus",
-    "Healing and personal growth": "Emotional Readiness",
-    "Building my purpose and identity": "Strong Preparation",
-    "Waiting and trusting God": "Passive Trust"
-  },
-  7: { // Q8
-    "Marriage will complete me": "Unrealistic Expectations",
-    "Marriage is a partnership, not a solution": "Healthy Mindset",
-    "I fear marriage may limit me": "Fear-based Thinking",
-    "I haven’t thought deeply about it": "Undefined Beliefs"
-  },
-  8: { // Q9
-    "I dress to attract attention": "Attention-Driven",
-    "I dress modestly but without confidence": "Low Confidence",
-    "I present myself with dignity and confidence": "Healthy Self-Worth",
-    "I struggle to find balance": "Need for Guidance"
-  },
-  9: { // Q10
-    "Wait and hope he proposes": "Passive Waiting",
-    "Confront him immediately": "Reactive",
-    "Set boundaries and seek clarity": "Healthy Boundaries",
-    "Feel confused and emotionally drained": "Emotional Confusion"
-  }
-};
-
-// If they choose     "Pressure to “figure it out quickly": "Pressure from Others"
-// for question 1 then I should point them up to chapter 4 as well
-// 
-// "I pray occasionally",
- //       "I pray only when I feel worried",
- //       "I struggle to know how to pray about it"
-// Personalized rules that trigger messages + chapter recommendations
-const RULES = [
-  {
-    id: "q1_fear_anxiety",
-    when: (answers) => answers[0] === "Fear of making the wrong choice" ||
-                      answers[0] === "Anxiety about whether it will ever happen",
-    message:
-      "Fear and anxiety may be shaping your expectations. God desires to lead you from peace, not pressure or fear.",
-    chapters: ["Chapter 1 (Fear)", "Chapter 2 (Loneliness)"]
-  },
-  {
-    id: "q2_unhealed",
-    when: (answers) => answers[1] === "I’m still affected by past heartbreak" ||
-                      answers[1] === "I try not to think about the past at all",
-    message:
-      "Unhealed wounds can quietly shape who we attract and how we respond to love.",
-    chapters: ["Chapter 3 (Hurt from Past Love Relationships)"]
-  },
-  {
-    id: "q3_emotion_pressure",
-    when: (answers) => answers[2] === "My emotions and chemistry" ||
-                      answers[2] === "Timing and pressure",
-    message:
-      "God’s will is often confirmed through peace, not urgency or emotional highs.",
-    chapters: ["Chapter 6 (Identifying God’s Will)"]
-  },
-  {
-    id: "q4_prayer",
-    when: (answers) => answers[3] === "I pray only when I feel worried" ||
-                      answers[3] === "I struggle to know how to pray about it" ||
-                      answers[3] ===  "I pray occasionally",
-    message:
-      "Prayer is not a last resort; it’s the foundation of clarity and peace.",
-    chapters: ["Chapter 7 (The Role of Prayer)", "Chapter 8 (Real-Life Stories)"]
-  },
-  {
-    id: "q5_connections",
-    when: (answers) => answers[4] === "I prefer to leave it entirely to God" ||
-                      answers[4] === "I avoid connections due to fear or disappointment",
-    message:
-      "Faith includes action. God often works through connections and community.",
-    chapters: ["Chapter 9 (Circles of Connection)"]
-  },
-  {
-    id: "q6_wise_voices",
-    when: (answers) => answers[5] === "I prefer to decide alone" ||
-                      answers[5] === "I feel uncomfortable with recommendations",
-    message:
-      "God often uses trusted voices to protect and guide us.",
-    chapters: ["Chapter 10 (Opening Up & Wise Voices)"]
-  },
-  {
-    id: "q7_external_focus",
-    when: (answers) => answers[6] === "Finding the right man",
-    message:
-      "Preparation attracts healthy love more than pursuit ever could.",
-    chapters: ["Chapter 13 (Becoming the Woman He Wants to Marry)"]
-  },
-  {
-    id: "q8_mindset",
-    when: (answers) => answers[7] === "Marriage will complete me" ||
-                      answers[7] === "I fear marriage may limit me",
-    message:
-      "A healthy mindset creates a healthy marriage foundation.",
-    chapters: ["Chapter 14 (Right Mindset About Marriage)"]
-  },
-  {
-    id: "q9_presentation",
-    when: (answers) => answers[8] === "I dress to attract attention" ||
-                      answers[8] === "I struggle to find balance",
-    message:
-      "How you present yourself communicates your values before words do.",
-    chapters: ["Chapter 15 (Look Presentable, Not Seductive)"]
-  },
-  {
-    id: "q10_commitment",
-    when: (answers) => answers[9] === "Wait and hope he proposes" ||
-                      answers[9] === "Feel confused and emotionally drained",
-    message:
-      "Clarity protects your heart and time.",
-    chapters: ["Chapter 16 (Responding to Proposals)", "Chapter 17 (Interest Without Commitment)"]
-  }
 ];
+
+
 
  function App() {
     // NEW: gate the intro screen
@@ -516,9 +403,9 @@ const startQuiz = () => {
 };
 
 // ADD IT RIGHT HERE
-const submitLeadAndShowResults = async () => {
+const submitIntakeForm = async () => {
   if (!name.trim() || !email.trim()) {
-    setFormError("Please enter both name and email to see your results.");
+    setFormError("Please enter both name and email to submit the form.");
     return;
   }
 
@@ -532,58 +419,19 @@ const submitLeadAndShowResults = async () => {
   setSavingLead(true);
 
   try {
-    const computed = buildResults(answers); // compute once
-    await saveLead(name.trim(), email.trim(), answers, computed);
+    await saveLead(name.trim(), email.trim(), answers);
     setShowLeadForm(false);
     setSubmitted(true);
   } catch (err) {
-    console.warn("Lead save failed:", err);
-    setFormError("We couldn’t save your details. Please try again.");
+    console.warn("Form save failed:", err);
+    setFormError("We couldn’t submit your form. Please try again.");
   } finally {
     setSavingLead(false);
   }
 };
 
- // const startQuiz = async () => {
- // if (!name.trim() || !email.trim()) {
-  //  setFormError("Please enter both name and email to begin.");
-  //  return;
- // }
+ 
 
-//  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-//  if (!emailOk) {
-//    setFormError("Please enter a valid email address.");
-//    return;
-//  }
-//  setFormError("");
-  
-//  setQuizStarted(true);
-
-// saveLead(name.trim(), email.trim()).catch((err) => {
- //   console.warn("Lead save failed:", err);
-    // optional: set a non-blocking message somewhere
-    // setFormError("We couldn't save your details, but you can continue.");
-//  });
-//};
-
-const buildResults = (answers) => {
-  // Collect tags (unique)
-  const tags = [];
-  for (let i = 0; i < answers.length; i++) {
-    const tag = TAGS_BY_QUESTION[i]?.[answers[i]];
-    if (tag) tags.push(tag);
-  }
-  const uniqueTags = Array.from(new Set(tags));
-
-  // Trigger messages + chapters
-  const triggered = RULES.filter(r => r.when(answers));
-  const messages = triggered.map(r => r.message);
-  const chapters = Array.from(new Set(triggered.flatMap(r => r.chapters)));
-
-  return { tags: uniqueTags, messages, chapters };
-};
-
-const results = submitted ? buildResults(answers) : null;
 
 const BrandHeader = () => (
   <div className="brand-header">
@@ -599,20 +447,22 @@ const BrandHeader = () => (
 const showBrandHeader =
   (showIntro && !quizStarted && !submitted) ||
   (showLeadForm && !submitted) ||
-  (submitted && results);
+  submitted;
+
 
   return (
   
     <div className="App">  
-git
+       <BrandHeader />
+
      {/* INTRO SCREEN — high-conversion version */}
 {showIntro && !quizStarted && !submitted && (
   <section className="intro">
 
-    <h1 className="intro-title">Single and Searching?</h1>
-    <h1 className="intro-title">You’re not behind.</h1>
+    <h1 className="intro-title">Premarital Counselling</h1>
+    {/* <h2 className="intro-subtitle">Prepare for a Strong, Healthy, and God-Honouring Marriage</h2> */}
     <h2 className="intro-subtitle">
-      Discover what may be holding you back — and what God is preparing you for next.
+      Gain insights into your relationship, learn key skills, and align your expectations before you enter marriage.
     </h2>
  <button
       className="primary-btn"
@@ -621,11 +471,10 @@ git
         setQuizStarted(true);
       }}
     >
-      Take the Quiz
+      Begin Assessment
     </button>
     <p className="intro-description">
-      Answer 10 quick questions to receive a personalized reflection
-      based on where you are emotionally, spiritually, and relationally.
+      Answer 44 questions to help you build a fulfilling, God-centered marriage.
     </p>
 
     {/* Hero image */}
@@ -637,65 +486,11 @@ git
     />
 
     <p className="intro-meta">
-      ⏱ Takes less than 3 minutes • 🙏 Faith-centered • 💛 Private
+      ⏱ About 10-12 minutes • 🙏 Faith-based and confidential • 💛 Guided by caring counsellors
     </p>
   </section>
 )}
-          {/* Option B: local/video file (uncomment and remove the iframe if you prefer)
-          <video className="video-file" controls playsInline preload="metadata">
-            <source src="/intro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <button className="primary-btn" onClick={() => setShowIntro(false)}>
-            Take the Quiz
-          </button> 
-            <button className="primary-btn"
-            onClick={() => {
-              setShowIntro(false);
-              setQuizStarted(true);
-              }} >
-                Take the Quiz
-                </button>
-        </section>
-      )}*/}
       
-      
-
-      {/* Start Screen */}
-        {/* {!showIntro && !quizStarted && !submitted && !showLeadForm && (
-        <div className="start-screen">
-          <h1><em>Single and Searching?</em></h1>
-          <h2><em>The Ladies Guide To Find A Godly Husband</em></h2>
-          <h4>Answer These 10 Questions to Discover What You Need to Work on to Find a Godly Husband.</h4>
-          <h4>Get a personalized result based on where you are right now</h4>
-           <p>Click below to begin.</p>
-             <button onClick={startQuiz}>Start Quiz</button>
-        </div>)}
-
-   
-       {!showIntro && !quizStarted && !submitted && (
-        <div className="start-screen">
-          <h2>Welcome to the Relationship Reflection Quiz</h2>
-          <p>Please enter your details to begin.</p>
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />     
-          {formError && <p style={{ color: "red" }}>{formError}</p>}
-          <button onClick={startQuiz}>Start Quiz</button>
-        </div>
-      )} */}
-
-
       {/* Quiz Questions */}
       {quizStarted && !submitted && !showLeadForm && (
         <div className="question-container">
@@ -805,9 +600,9 @@ git
 {/* Lead Capture (after questions, before results) */}
 {showLeadForm && !submitted && (
   <div className="start-screen">
-    <h2 className="lead-title">Your Results Are Ready 🎉</h2>
+    <h2 className="lead-title">Premarital Counselling Intake 🎉</h2>
     <p className="lead-subtitle">
-      Enter your details to receive your personalized reflection.
+      Please enter your details to submit your intake form to Beautiful Marriage Garden.
     </p>
 
   <input
@@ -843,142 +638,38 @@ git
 
     <button
   className="lead-btn"
-  onClick={submitLeadAndShowResults}
+  onClick={submitIntakeForm}
   disabled={savingLead}
 >
-  {savingLead ? "Preparing your results..." : "View My Results"}
+  {savingLead ? "Submitting..." : "Submit Intake Form"}
 </button>
 
 <p className="lead-privacy">
   🔒 Your information is private and will never be shared.
 </p>
-
-  {/* <button onClick={submitLeadAndShowResults} disabled={savingLead}>
-      {savingLead ? "Saving..." : "Show My Results"}
-    </button> */}
   </div>
 )}
 
 
-{/* Results */}
-{submitted && results && (
+{submitted && (
   <div className="results">
     <div className="report-card">
       <div className="report-header">
         <div>
-          <p className="report-label">Beautiful Marriage Garden • Quiz Report</p>
-          <h2 className="report-title">Your Personalized Results</h2>
-          <p className="report-subtitle">A snapshot of where you are right now — and what to focus on next.</p>
-        </div>
-
-        {/* Optional badge (you can change the label) */}
-        <div className="report-badge">
-          <div className="badge-top">Status</div>
-          <div className="badge-main">In Progress</div>
-          <div className="badge-bottom">Growth Season</div>
-        </div>
-      </div>
-
-      <div className="report-grid">
-        <section className="report-section">
-          <h3 className="section-title">Tags (Your Current Season)</h3>
-          <div className="pill-wrap">
-            {results.tags.map((t, i) => (
-              <span className="pill" key={i}>{t}</span>
-            ))}
-          </div>
-        </section>
-
-        <section className="report-section">
-          <h3 className="section-title">Insight</h3>
-          <ul className="bullets">
-            {results.messages.length > 0 ? (
-              results.messages.map((m, i) => <li key={i}>{m}</li>)
-            ) : (
-              <li>Thank you for completing the quiz. Keep seeking God’s peace and wisdom in your journey.</li>
-            )}
-          </ul>
-        </section>
-        
-      <section className="report-section">
-  <h3 className="section-title">Recommended Chapters</h3>
-   <p className="section-subtitle">
-    Based on your responses, the following chapters from the book: <em>"Single and Searching? The Lady’s Guide to Find and Attract the Right Husband"</em> 
-    are a helpful place to begin your personal reflection and growth.
-  </p>
-
-  <ol className="chapters">
-    {results.chapters.map((c, i) => (
-      <li key={i} className="chapter-item">{c}</li>
-    ))}
-  </ol>
-
-  {/* Audiobook preview */}
-  <div className="audiobook-preview">
-    <img
-      src={`${import.meta.env.BASE_URL}images/phone_book.png`}
-      alt="Single and Searching Audiobook"
-      className="audiobook-image"
-      loading="lazy"
-    />
-
-    <p className="audiobook-caption">
-      🎧 Prefer to listen? Here’s a short audio introduction to help you reflect on your results.
-    </p>
-
-    <audio
-      controls
-      preload="none"
-      className="audiobook-audio"
-      src={`${import.meta.env.BASE_URL}audio/intro.mp3`}
-    >
-      Your browser does not support the audio element.
-    </audio>
-
-    <p className="audiobook-link-text">
-      Want to go deeper?
-    </p>
-
-    <a
-      href="https://payhip.com/b/bO6Gw"
-      target="_blank"
-      rel="noreferrer"
-      className="audiobook-link"
-    >
-      🎧 Listen to the full audiobook
-    </a>
-  </div>
-</section>
-
-        {/* Optional call-to-action area */}
-        <section className="report-section report-cta">
-          <h3 className="section-title">Next Step</h3>
-          <p className="cta-text">
-            Want a clear plan? Start with the chapters above and take notes on what stands out.
+          <p className="report-label">Beautiful Marriage Garden • Premarital Counselling</p>
+          <h2 className="report-title">Thank you for completing the intake form.</h2>
+          <p className="report-subtitle">
+            A counsellor will get in touch with you via the email you provided (<strong>{email}</strong>) within 24–48 hours.
           </p>
-
-          {/* Replace with your real link later */}
-          <a className="cta-btn" href="https://payhip.com/b/bO6Gw" target="_blank" rel="noreferrer">
-            Begin Your Next Step with this Guide
-          </a>
-        </section>
+        </div>
       </div>
 
       <div className="report-footer">
         <span>Powered by Beautiful Marriage Garden</span>
       </div>
     </div>
-  </div> 
+  </div>
 )}
-{/*  {!showIntro && (
-  <footer className="app-footer">
-    <img
-      src={`${import.meta.env.BASE_URL}images/logo.png`}
-      alt="Beautiful Marriage Garden"
-      className="footer-logo"
-    />
-  </footer>
-)} */}
 </div>
   );}
 
